@@ -27,7 +27,7 @@ namespace csharp
                             }
                             else
                             {
-                                Item.Quality = Item.Quality - 1;
+                                Item.Quality--;
                             }
                         }
                     }
@@ -36,7 +36,7 @@ namespace csharp
                 {
                     if (Item.Quality < 50)
                     {
-                        Item.Quality = Item.Quality + 1;
+                        Item.Quality++;
                         /*
                         "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
 	                    Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
@@ -48,7 +48,7 @@ namespace csharp
                             {
                                 if (Item.Quality < 50)
                                 {
-                                    Item.Quality = Item.Quality + 1;
+                                    Item.Quality++;
                                 }
                             }
 
@@ -57,7 +57,7 @@ namespace csharp
                                 //The Quality of an item is never more than 50
                                 if (Item.Quality < 50)
                                 {
-                                    Item.Quality = Item.Quality + 1;
+                                    Item.Quality++;
                                 }
                             }
                         }
@@ -66,7 +66,7 @@ namespace csharp
 
                 if (Item.Name != "Sulfuras, Hand of Ragnaros")
                 {
-                    Item.SellIn = Item.SellIn - 1;
+                    Item.SellIn--;
                 }
 
                 //Once the sell by date has passed, Quality degrades twice as fast
@@ -81,7 +81,7 @@ namespace csharp
                             {
                                 if (Item.Name != "Sulfuras, Hand of Ragnaros")
                                 {
-                                    Item.Quality = Item.Quality - 1;
+                                    Item.Quality--;
                                 }
                             }
                         }
@@ -95,7 +95,7 @@ namespace csharp
                         //The Quality of an item is never more than 50
                         if (Item.Quality < 50)
                         {
-                            Item.Quality = Item.Quality + 1;
+                            Item.Quality++;
                         }
                     }
                 }
