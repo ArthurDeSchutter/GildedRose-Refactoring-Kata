@@ -10,7 +10,7 @@ namespace csharp
             this.Items = Items;
         }
 
-        public bool isOverMaxValue(int quality) => quality >= 50 ? false : true;
+        public bool isOverMaxQuality(int quality) => quality >= 50 ? false : true;
 
         public void UpdateQuality()
         {
@@ -36,7 +36,7 @@ namespace csharp
                 }
                 else
                 {
-                    if (isOverMaxValue(Item.Quality))
+                    if (isOverMaxQuality(Item.Quality))
                     {
                         Item.Quality++;
                         /*
@@ -48,7 +48,7 @@ namespace csharp
                         {
                             if (Item.SellIn < 11)
                             {
-                                if (isOverMaxValue(Item.Quality))
+                                if (isOverMaxQuality(Item.Quality))
                                 {
                                     Item.Quality++;
                                 }
@@ -57,7 +57,7 @@ namespace csharp
                             if (Item.SellIn < 6)
                             {
                                 //The Quality of an item is never more than 50
-                                if (isOverMaxValue(Item.Quality))
+                                if (isOverMaxQuality(Item.Quality))
                                 {
                                     Item.Quality++;
                                 }
@@ -95,7 +95,7 @@ namespace csharp
                     else //"Aged Brie" actually increases in Quality the older it gets
                     {
                         //The Quality of an item is never more than 50
-                        if (isOverMaxValue(Item.Quality))
+                        if (isOverMaxQuality(Item.Quality))
                         {
                             Item.Quality++;
                         }
