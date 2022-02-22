@@ -18,6 +18,16 @@ namespace csharp
         }
 
         [Test]
+        public void testNormalItemAfterSellIn()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = -1, Quality = 20 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual("+5 Dexterity Vest", Items[0].Name);
+            Assert.AreEqual(-2, Items[0].SellIn);
+            Assert.AreEqual(18, Items[0].Quality);
+        }
+
         public void testAgedBrie()
         {
             IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 2, Quality = 0 } };
@@ -26,6 +36,28 @@ namespace csharp
             Assert.AreEqual("Aged Brie", Items[0].Name);
             Assert.AreEqual(1, Items[0].SellIn);
             Assert.AreEqual(1, Items[0].Quality);
+        }
+        [Test]
+
+        public void testAgedBrieAfterSellIn()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = -1, Quality = 0 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual("Aged Brie", Items[0].Name);
+            Assert.AreEqual(-2, Items[0].SellIn);
+            Assert.AreEqual(1, Items[0].Quality);
+        }
+
+        [Test]
+        public void testAgedBrieMaxQuality()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = -1, Quality = 50 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual("Aged Brie", Items[0].Name);
+            Assert.AreEqual(-2, Items[0].SellIn);
+            Assert.AreEqual(50, Items[0].Quality);
         }
 
         [Test]
@@ -37,6 +69,17 @@ namespace csharp
             Assert.AreEqual("Conjured Mana Cake", Items[0].Name);
             Assert.AreEqual(2, Items[0].SellIn);
             Assert.AreEqual(4, Items[0].Quality);
+        }
+
+        [Test]
+        public void testConjuredAfterSellIn()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = -1, Quality = 6 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual("Conjured Mana Cake", Items[0].Name);
+            Assert.AreEqual(-2, Items[0].SellIn);
+            Assert.AreEqual(2, Items[0].Quality);
         }
 
         [Test]
@@ -65,6 +108,23 @@ namespace csharp
             Assert.AreEqual("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
             Assert.AreEqual(9, Items[0].SellIn);
             Assert.AreEqual(50, Items[0].Quality);
+        }
+
+        [Test]
+        public void testBackstagepassesAfterSellIn()
+        {
+            IList<Item> Items = new List<Item> { new Item
+            {
+                    Name = "Backstage passes to a TAFKAL80ETC concert",
+                    SellIn = -1,
+                    Quality = 49
+            }
+            };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
+            Assert.AreEqual(-2, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].Quality);
         }
 
     }
